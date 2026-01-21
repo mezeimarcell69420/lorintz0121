@@ -48,7 +48,15 @@ namespace lorintz0121
         public double Highest()
         {
             // TODO : Determine the highest score
-            return 0;
+            double highest = scores[0];
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] > highest)
+                {
+                    highest = scores[i];
+                }
+            }
+            return highest;
         }
 
         /// <summary>
@@ -69,6 +77,16 @@ namespace lorintz0121
         public void PrintSummary()
         {
             // TODO : Print summary report
+            Console.WriteLine("Summary".PadLeft(17));
+            Console.WriteLine("-".PadLeft(30, '-'));
+            Console.Write("Scores = ");
+            for (int i = 0; i < scores.Length; i++)
+            {
+                Console.Write($"{scores[i]} ");
+            }
+            Console.WriteLine($"\nLowest Score  = {Lowest()}");
+            Console.WriteLine($"Highest Score = {Highest()}");
+            Console.WriteLine($"Average Score = {Average():F1}");
         }
 
         /// <summary>

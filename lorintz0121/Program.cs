@@ -13,6 +13,22 @@ namespace lorintz0121
         public void ReadScores()
         {
             // TODO : Implement reading 8 scores from the user
+            scores = new double[8];
+            Console.WriteLine("Enter Eight Contestant Scores:");
+            for (int i = 0; i < scores.Length; i++)
+            {
+                Console.Write($"Judge {i + 1} --> ");
+                string input = Console.ReadLine();
+                if (double.TryParse(input, out double score))
+                {
+                    scores[i] = score;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong value, try again!");
+                    i--; // Decrement i to repeat this iteration
+                }
+            }
         }
 
         /// <summary>
@@ -39,7 +55,15 @@ namespace lorintz0121
         public double Highest()
         {
             // TODO : Determine the highest score
-            return 0;
+            double highest = scores[0];
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] > highest)
+                {
+                    highest = scores[i];
+                }
+            }
+            return highest;
         }
 
         /// <summary>
@@ -79,6 +103,16 @@ namespace lorintz0121
         public void PrintSummary()
         {
             // TODO : Print summary report
+            Console.WriteLine("Summary".PadLeft(17));
+            Console.WriteLine("-".PadLeft(30, '-'));
+            Console.Write("Scores = ");
+            for (int i = 0; i < scores.Length; i++)
+            {
+                Console.Write($"{scores[i]} ");
+            }
+            Console.WriteLine($"\nLowest Score  = {Lowest()}");
+            Console.WriteLine($"Highest Score = {Highest()}");
+            Console.WriteLine($"Average Score = {Average():F1}");
         }
 
         /// <summary>

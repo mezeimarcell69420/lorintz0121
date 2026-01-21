@@ -37,8 +37,15 @@ namespace lorintz0121
         /// <returns>The lowest score in scores</returns>
         public double Lowest()
         {
-            // TODO : Determine the lowest score
-            return 0;
+            double lowestScore = 0;
+
+            foreach (var s in scores)
+            {
+                if (s < lowestScore)
+                    lowestScore = s;
+            }
+
+            return lowestScore;
         }
 
         /// <summary>
@@ -66,8 +73,27 @@ namespace lorintz0121
         /// <returns>The average</returns>
         public double Average()
         {
+            double divBy = 0;
+            double sum = 0;
+            double[] newArray = new double[6];
+            int index = 0;
+
+            foreach (var s in scores)
+            {
+                if (s != Lowest() && s != Highest())
+                {
+                    newArray[index] = s;
+                    index++;
+                }
+            }
+
+            foreach (var s in newArray)
+            {
+                sum += s;
+                divBy++;
+            }
             // TODO : Calculate the average without lowest and highest score
-            return 0;
+            return sum / divBy;
         }
 
         /// <summary>

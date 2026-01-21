@@ -48,7 +48,15 @@ namespace lorintz0121
         public double Highest()
         {
             // TODO : Determine the highest score
-            return 0;
+            double highest = scores[0];
+            for (int i = 1; i < scores.Length; i++)
+            {
+                if (scores[i] > highest)
+                {
+                    highest = scores[i];
+                }
+            }
+            return highest;
         }
 
         /// <summary>

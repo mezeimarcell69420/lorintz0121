@@ -37,7 +37,7 @@ namespace lorintz0121
         /// <returns>The lowest score in scores</returns>
         public double Lowest()
         {
-            double lowestScore = 0;
+            double lowestScore = double.MaxValue;
 
             foreach (var s in scores)
             {
@@ -78,16 +78,16 @@ namespace lorintz0121
             double[] newArray = new double[6];
             int index = 0;
 
-            foreach (var s in scores)
-            {
-                if (s != Lowest() && s != Highest())
-                {
-                    newArray[index] = s;
-                    index++;
-                }
-            }
+            //foreach (var s in scores)
+            //{
+            //    if (s != Lowest() && s != Highest())
+            //    {
+            //        newArray[index] = s;
+            //        index++;
+            //    }
+            //}
 
-            foreach (var s in newArray)
+            foreach (var s in scores)
             {
                 sum += s;
                 divBy++;
